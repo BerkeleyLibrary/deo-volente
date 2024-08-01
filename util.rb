@@ -2,6 +2,7 @@ require "date"
 require "securerandom"
 
 # equivalent to e.h.i.dataverse.util.FileUtil.generateStorageIdentifier
+# n.b. this does not include the protocol/driver and separator
 def generate_storage_identifier
   uuid = SecureRandom.uuid
   # last 6 bytes of the random uuid in hex
@@ -11,5 +12,5 @@ def generate_storage_identifier
   timestamp = DateTime.now
   hex_timestamp = timestamp.strftime('%Q').to_i.to_s(16)
   
-  return "file://#{hex_timestamp}-#{hex_random}"
+  return "#{hex_timestamp}-#{hex_random}"
 end
