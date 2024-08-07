@@ -38,13 +38,13 @@ module BerkeleyLibrary
         @storage_identifier ||= BerkeleyLibrary::DeoVolente::File.generate_storage_identifier
       end
 
-      def to_hash
+      def to_h
         h = {}
-        instance_variables.each { |v| h[v.to_s.delete('@')] = instance_variable_get(v) }
+        instance_variables.each { |v| h[v.to_s.delete('@').to_sym] = instance_variable_get(v) }
         h
       end
 
-      def to_json(*_args)
+      def to_json(**opts)
         j = {}
         j[:directoryLabel] = @directory_label if @directory_label
         j[:md5Hash] = md5_hash
@@ -56,12 +56,12 @@ module BerkeleyLibrary
         # j[:restrict] - boolean
         # j[:forceReplace] - boolean
         # j[:checksum] - {'@type': String, '@value': String}
-        j.to_json
+        JSON.generate(j, opts)
       end
 
       def self.get_directory_label(filename:, basedir:)
         directory_label, _fn = Pathname.new(filename).relative_path_from(basedir).split
-        directory_label
+        directory_label.to_s
       end
 
       # equivalent to e.h.i.dataverse.util.FileUtil.generateStorageIdentifier
@@ -72,14 +72,14 @@ module BerkeleyLibrary
         hex_random = uuid[24..]
 
         # get milliseconds since epoch, and convert to hex digits
-        timestamp = DateTime.now
-        hex_timestamp = timestamp.strftime('%Q').to_i.to_s(16)
+        timestamp = Process.clock_gettime(Process::CLOCK_REALTIME, :millisecond)
+        hex_timestamp = timestamp.to_s(16)
 
         "#{hex_timestamp}-#{hex_random}"
       end
 
-      def self.generate_storage_uri(identifier, driver: 'file', separator: '://')
-        "#{driver}#{separator}#{identifier}"
+      def self.generate_storage_uri(identifier, driver: 'file', separator: '://', prefix: nil, prefix_separator: nil)
+        "#{driver}#{separator}#{prefix}#{prefix_separator}#{identifier}"
       end
     end
   end
