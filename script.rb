@@ -1,5 +1,12 @@
 # frozen_string_literal: true
 
+# 1. walk directory tree to create csv manifest
+# 2. parse csv manifest to create hard links for rsyncing
+# 3. rsync using hard links to Dataverse files folder
+# 4. unlink hard links
+# 5. parse csv manifest to create JSON objects for Dataverse addFiles API call
+# 6. POST JSON data to Dataverse; write out new CSV file containing DV file IDs
+
 require 'csv'
 require 'digest'
 require 'json'
@@ -45,6 +52,7 @@ def generate_manifest(path, outfile, tmpdir, doi)
   end
 end
 
+## pseudocode/untested BEGIN
 def link_for_rsync(filename, link_directory, storageIdentifier)
   linkname = Pathname.new(link_directory) + storageIdentifier
   File.link(filename, linkname)
@@ -65,6 +73,8 @@ def _linkfiles(infile)
     link_for_rsync(row['orig_filename'], row['link_directory'], row['storageIdentifier'])
   end
 end
+
+## pseudocode/untested END
 
 def add_files_from_csv(infile, api_key, doi)
   data = CSV.open(infile, headers: true) do 

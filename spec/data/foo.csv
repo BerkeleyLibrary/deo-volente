@@ -1,0 +1,13 @@
+filename,link_directory,storage_id,directory_label,basename,checksum,mimetype,description
+/Users/matienzo/Documents/Code/BerkeleyLibrary/deo-volente/0.zip,/tmp/10.302/FK2/ASDF,19124c82a5a-2fd5d45434a6,"",0.zip,426536dc1c000c08f319994d76691e79,application/zip,""
+/Users/matienzo/Documents/Code/BerkeleyLibrary/deo-volente/Gemfile,/tmp/10.302/FK2/ASDF,19124c82a5d-fb19c041274c,"",Gemfile,b8d41084ee5961704e0997efc80ef59e,application/octet-stream,""
+/Users/matienzo/Documents/Code/BerkeleyLibrary/deo-volente/Gemfile.lock,/tmp/10.302/FK2/ASDF,19124c82a61-65a2486c523a,"",Gemfile.lock,7f68385d35089dfb01064c553bd1ea44,application/octet-stream,""
+/Users/matienzo/Documents/Code/BerkeleyLibrary/deo-volente/README.md,/tmp/10.302/FK2/ASDF,19124c82a64-a4bc245c31d8,"",README.md,e10484f6a70a83b4cd00eb2be4c9ce40,text/markdown,""
+/Users/matienzo/Documents/Code/BerkeleyLibrary/deo-volente/foo,/tmp/10.302/FK2/ASDF,19124c82a68-110fdb01469e,"",foo,d41d8cd98f00b204e9800998ecf8427e,application/octet-stream,""
+/Users/matienzo/Documents/Code/BerkeleyLibrary/deo-volente/script.rb,/tmp/10.302/FK2/ASDF,19124c82a6a-0346a72732db,"",script.rb,faeabb4d3f37d45d11675cf652d3a814,text/x-ruby,""
+/Users/matienzo/Documents/Code/BerkeleyLibrary/deo-volente/spec/spec_helper.rb,/tmp/10.302/FK2/ASDF,19124c82a6d-4f6ac32d2c43,spec,spec_helper.rb,273b0c7160afd97e079dba71377ace03,text/x-ruby,""
+/Users/matienzo/Documents/Code/BerkeleyLibrary/deo-volente/test.rb,/tmp/10.302/FK2/ASDF,19124c82a6f-8d3964e6a998,"",test.rb,f4073e8da55374aa579e16adffda9212,text/x-ruby,""
+/Users/matienzo/Documents/Code/BerkeleyLibrary/deo-volente/tmp/19114f8ca17-d71c35e1315c,/tmp/10.302/FK2/ASDF,19124c82a71-f6a72e0bd12a,tmp,19114f8ca17-d71c35e1315c,a2065a0677e64d8ebfe6646e70e8a67f,application/octet-stream,""
+/Users/matienzo/Documents/Code/BerkeleyLibrary/deo-volente/tmp/19114f9b509-e86de7cdd09c,/tmp/10.302/FK2/ASDF,19124c82a73-2d6bb306f1e9,tmp,19114f9b509-e86de7cdd09c,032bba83dea51b6059229639d777d5a8,application/octet-stream,""
+/Users/matienzo/Documents/Code/BerkeleyLibrary/deo-volente/tmp/files.zip,/tmp/10.302/FK2/ASDF,19124c82a75-30d8fbd0c5da,tmp,files.zip,7ae1955875828e90eec25d87908e89df,application/zip,""
+/Users/matienzo/Documents/Code/BerkeleyLibrary/deo-volente/util.rb,/tmp/10.302/FK2/ASDF,19124c82a77-f0f4d7ca1633,"",util.rb,f1a9d3a8e3e07d9745a39bc372b24512,text/x-ruby,""
