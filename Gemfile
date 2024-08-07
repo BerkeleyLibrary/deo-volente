@@ -9,9 +9,11 @@ ruby ruby_version_exact
 
 gem 'faraday'
 gem 'marcel'
+gem 'rake'
 
 group :development do
   gem 'rubocop'
+  gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
 end
 

@@ -10,3 +10,4 @@ RSpec/MultipleMemoizedHelpers:
 AllCops:
   Exclude:
     - 'script.rb'
+    - 'vendor/bundle/**/*'
