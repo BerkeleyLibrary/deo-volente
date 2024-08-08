@@ -1,0 +1,13 @@
+require: rubocop-rspec
+
+Metrics/BlockLength:
+  AllowedMethods: ['describe', 'context']
+
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - 'spec/**/*.rb'
+
+AllCops:
+  Exclude:
+    - 'script.rb'
+    - 'vendor/bundle/**/*'
