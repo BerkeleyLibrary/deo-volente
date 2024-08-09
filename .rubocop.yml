@@ -1,4 +1,6 @@
-require: rubocop-rspec
+require:
+  - rubocop-rake
+  - rubocop-rspec
 
 Metrics/BlockLength:
   AllowedMethods: ['describe', 'context']
@@ -11,3 +13,4 @@ AllCops:
   Exclude:
     - 'script.rb'
     - 'vendor/bundle/**/*'
+  NewCops: enable
