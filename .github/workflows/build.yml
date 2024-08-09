@@ -9,7 +9,7 @@ name: Build
 on: 
   - push
   - pull_request
-  - workflow_dpispatch
+  - workflow_dispatch
 env:
   REGISTRY: ghcr.io
   
