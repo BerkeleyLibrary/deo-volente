@@ -19,6 +19,7 @@ permissions:
 jobs:
   setup:
     runs-on: ubuntu-latest
+
     steps:
       - name: Sanitize image name
         uses: actions/github-script@v6
@@ -30,33 +31,33 @@ jobs:
         run: |
           echo SHORT_SHA="${GITHUB_SHA:0:7}" >> $GITHUB_ENV
 
-      outputs:
-        base_image_name: ${{ steps.image-name.outputs.result }}
-        build_image: ${{ steps.image-name.outputs.result }}:${{ env.SHORT_SHA }}
+    outputs:
+      base_image_name: ${{ steps.image-name.outputs.result }}
+      build_image: ${{ steps.image-name.outputs.result }}:${{ env.SHORT_SHA }}
   
   build:
     if: github.event_name != 'release'
     needs: setup
     env:
       BUILD_IMAGE = ${{ needs.setup.outputs.build_image }}
-      
-      runs-on: ubuntu-latest
-      permissions:
-        packages: writes
-      steps:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: writes
+
+    steps:
       - uses: actions/checkout@v4
         name: Checkout repository
       
       - name: Log in to the Container registry
-      uses: docker/login-action@v2
-      with:
-        registry: ${{ env.REGISTRY }}
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get build start time
-      run: |
-        echo BUILD_TIMESTAMP="$(date --utc --iso-8601=seconds)" >> $GITHUB_ENV
+        run: |
+          echo BUILD_TIMESTAMP="$(date --utc --iso-8601=seconds)" >> $GITHUB_ENV
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
