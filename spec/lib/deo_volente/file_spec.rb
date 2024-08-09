@@ -3,6 +3,7 @@
 require 'spec_helper'
 
 module BerkeleyLibrary
+  # A set of helper tools for loading data into the UC Berkeley Dataverse
   module DeoVolente
     describe File do
       let(:orig_filename) { 'spec/data/foo.csv' }
