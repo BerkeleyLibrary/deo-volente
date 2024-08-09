@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-Dir.glob(File.expand_path('deo_volente/*.rb', __dir__)).sort.each(&method(:require))
+Dir.glob(File.expand_path('deo_volente/*.rb', __dir__)).each(&method(:require))

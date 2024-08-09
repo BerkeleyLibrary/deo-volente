@@ -3,9 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby_version_file = File.expand_path('.ruby-version', __dir__)
-ruby_version_exact = File.read(ruby_version_file).strip
-ruby ruby_version_exact
+ruby '~>3.3.0'
 
 gem 'faraday'
 gem 'marcel'
