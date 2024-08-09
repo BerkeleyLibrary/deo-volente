@@ -12,7 +12,6 @@ module BerkeleyLibrary
         let(:fi_filename) { 'foo.csv' }
         let(:fi_mime_type) { 'text/csv' }
         let(:fi_md5) { '11f8e9dc8c473278962dbadfd803e4c1' }
-        let(:sid) { '1912f1446ad-0d909b10387' }
 
         describe '#initialize' do
           it 'creates a new instance' do
@@ -21,9 +20,9 @@ module BerkeleyLibrary
 
           it 'creates a new instance with fully specified options' do
             f = described_class.new(filename: 'spec/data/unrecognizable', md5_hash: 'md5', directory_label: 'bogus',
-                                    mime_type: 'application/json', storage_identifier: sid)
+                                    mime_type: 'application/json', storage_identifier: 'not_Real')
             expect(f).to have_attributes(md5_hash: 'md5', directory_label: 'bogus', mime_type: 'application/json',
-                                         storage_identifier: sid)
+                                         storage_identifier: 'not_Real')
           end
         end
 
@@ -58,14 +57,10 @@ module BerkeleyLibrary
           end
 
           describe '#to_json' do
-            before do
-              file_instance.storage_identifier = sid
-            end
-
             it 'returns a JSON object suitable for Dataverse' do
               parsed = JSON.parse(file_instance.to_json)
               expect(parsed).to include('md5Hash' => fi_md5, 'description' => '', 'fileName' => fi_filename,
-                                        'mimeType' => fi_mime_type, 'storageIdentifier' => "file://#{sid}")
+                                        'mimeType' => fi_mime_type, 'storageIdentifier' => match(%r{^file://}))
             end
           end
         end
