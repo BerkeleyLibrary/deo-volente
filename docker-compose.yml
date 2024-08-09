@@ -1,8 +1,46 @@
 services:
-  app:
-    build: .
+  app: &services-app
+    build: 
+      context: .
+      target: development
+    depends_on:
+      - db
+      - worker
     ports:
-      - 3000
+      - 3000:3000
     init: true
     volumes:
       - ./:/opt/app
+    restart: always
+    networks:
+      default:
+        aliases:
+          - app.test
+
+  worker:
+    <<: *services-app
+    command: good_job start
+    depends_on:
+      - db
+    ports: []
+  
+  db:
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+    image: postgres:12.2
+    networks:
+      default:
+        aliases:
+           - db.test
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./:/build:rw
+  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
