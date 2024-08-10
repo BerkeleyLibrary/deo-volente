@@ -10,6 +10,7 @@ gem 'good_job', '~> 4.1'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'marcel'
+gem 'pg', '~> 1.5'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.3', '>= 7.1.3.4'
 gem 'rake'
@@ -39,7 +40,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'rspec', '~> 3.10'
   gem 'selenium-webdriver'
   gem 'simplecov', '~> 0.21', require: false
   gem 'simplecov-rcov', '~> 0.2', require: false
@@ -49,6 +49,6 @@ end
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
+  gem 'rspec', '~> 3.10'
+  gem 'rspec-rails', '~> 6.1.3'
 end
-
-gem "pg", "~> 1.5"
