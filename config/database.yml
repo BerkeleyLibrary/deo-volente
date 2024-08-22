@@ -1,0 +1,12 @@
+---
+
+development:
+  url: <%= ENV['DATABASE_URL'] || 'postgres://root:root@db/deovolente-dev?pool=5' %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5).to_i + ENV.fetch("GOOD_JOB_MAX_THREADS", 5).to_i %>
+  
+test:
+  url: <%= ENV['DATABASE_URL'] ||'postgres://root:root@db/deovolente-test?pool=3' %>
+
+production:
+  url: <%= ENV['DATABASE_URL'] || 'postgres://root:root@db/deovolente-prod' %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5).to_i + ENV.fetch("GOOD_JOB_MAX_THREADS", 5).to_i %>

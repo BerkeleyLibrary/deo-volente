@@ -15,7 +15,7 @@ flowchart
 
         subgraph handleFile["handleFile(filename)"]
             generateStorageIdentifier -->fileMetadata
-            getPathname --> splitPathAndFileName & getMimeType & md5Hash --> fileMetadata[/"fileMetadata"/]
+            getPathname --> splitPathAndFileName & getMimeType & md5Hash --> fileMetadata[("fileMetadata")]
         end
         
         subgraph copyToDVStorage
