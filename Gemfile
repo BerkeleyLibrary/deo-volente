@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '~>3.3.0'
 
+gem 'activeresource', '~> 6.1.0'
 gem 'faraday'
 gem 'good_job', '~> 4.1'
 gem 'importmap-rails'
